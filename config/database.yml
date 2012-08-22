@@ -4,10 +4,14 @@
 # Configure Using Gemfile
 # gem 'activerecord-jdbcsqlite3-adapter'
 #
-development:
-  adapter: sqlite3
-  database: db/development.sqlite3
 
+development:
+  adapter: jdbc
+  username: dmichael
+  password: dmichael
+  driver: oracle.jdbc.driver.OracleDriver 
+  url: jdbc:oracle:thin:@//etnasancrptdb1:1521/sancrpt
+  
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
@@ -16,5 +20,8 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+    adapter: jdbc
+    username: dmichael
+    password: dmichael
+    driver: oracle.jdbc.driver.OracleDriver 
+    url: jdbc:oracle:thin:@//etnasancrptdb1:1521/sancrpt
