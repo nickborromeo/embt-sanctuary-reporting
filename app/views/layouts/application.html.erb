@@ -19,6 +19,10 @@
 					<%= text_field_tag :end_date, Time.now.strftime('%m/%d/%Y') %>
 				</div>
 				<div>
+					<%= label_tag :account_name, "Company: " %>
+					<%= text_field_tag :account_name %>
+				</div>
+				<div>
 					<%= submit_tag("Search", {:id => 'start_search'})%>
 				</div>
 			<%end%>
