@@ -6,28 +6,34 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>	
-	<header>
-		<div>
-			<%= form_tag(:controller => 'licenses', :action => 'show', :remote => true) do %>
-				<div>
-					<%= label_tag :start_date, "Start Date" %>
-					<%= text_field_tag :start_date %>
-				</div>
-				<div>
-					<%= label_tag :end_date, "End Date" %>
-					<%= text_field_tag :end_date, Time.now.strftime('%m/%d/%Y') %>
-				</div>
-				<div>
-					<%= label_tag :account_name, "Company: " %>
-					<%= text_field_tag :account_name %>
-				</div>
-				<div>
-					<%= submit_tag("Search", {:id => 'start_search'})%>
-				</div>
-			<%end%>
+<body>
+	<header id='hd'>
+		<div id='logo_container'>
+			<div id='embt_logo'>
+				<%= image_tag("embarcadero_logo.png") %>
+			</div>	 
 		</div>
-	</header>
+	<header>
+			
+	<div>
+		<%= form_tag(:controller => 'licenses', :action => 'show', :remote => true) do %>
+			<div>
+				<%= label_tag :start_date, "Start Date" %>
+				<%= text_field_tag :start_date %>
+			</div>
+			<div>
+				<%= label_tag :end_date, "End Date" %>
+				<%= text_field_tag :end_date, Time.now.strftime('%m/%d/%Y') %>
+			</div>
+			<div>
+				<%= label_tag :account_name, "Company: " %>
+				<%= text_field_tag :account_name %>
+			</div>
+			<div>
+				<%= submit_tag("Search", {:id => 'start_search'})%>
+			</div>
+		<%end%>
+	</div>
 
 	<%= yield %>
 
