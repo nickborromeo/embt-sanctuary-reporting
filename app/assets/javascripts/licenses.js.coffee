@@ -15,3 +15,12 @@ jQuery ->
 		buttonImage: '/assets/calendar.png'
 		buttonImageOnly: true
 		
+	$('table#license_table').dataTable
+		sPaginationType: 'full_numbers'
+		sScrollX: "100%"
+		aoColumnDefs:[
+			sWidth: '350px'
+			aTargets: [1]
+		]
+		
+		

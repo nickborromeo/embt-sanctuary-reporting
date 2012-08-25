@@ -1,3 +1,52 @@
 // Place all the styles related to the Licenses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html{
+	color: #333;
+}
+
+
+#license-pagination{
+	overflow:hidden;
+	margin: 0px auto;
+}
+
+#hd{
+	width: 80%;
+	margin: 0px auto;
+	height: 60px;
+	padding-top: 16px;
+}
+
+#license_table {
+	border: 0;
+	font-family: helvetica;
+	font-size: 14px;
+}
+
+#logo_container {
+	background-color: black;
+	margin: 0px;
+	padding: 0px;
+	height: 39px;
+	width: 100%;
+	position: relative;
+	top:0;
+	display: block;
+}
+
+#embt_logo {
+	margin: 0px;
+	padding: 5px 0px 5px 20px;
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.4);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.4);
+	background-color: #333;
+	
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
