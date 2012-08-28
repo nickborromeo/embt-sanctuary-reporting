@@ -58,5 +58,21 @@
 </div>
 
 <section id='data_content' class='data_section'>
-	<%= yield %>
+	
+	<div id='license_data'>
+		<%= yield %>
+	</div>
+	
+	<div id='loading'>
+		<h2>Retrieving Licenses</h2>
+		<%= image_tag 'spinner.gif'%>
+	</div>
+	
+	<div id='retrieve_error'>
+		<h2> There was a problem retrieving the licenses </h2>
+	</div>
+	
+	
+	
+	
 </section>
