@@ -1,0 +1,47 @@
+<div id="license-pagination">
+	<table id="license_table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th class="column">Serial Number</th>
+					<th>Company</th>
+					<th>Account Name</th>
+					<th>E-Mail</th>
+					<th>Phone #</th>
+					<th>Address</th>
+					<th>City</th>
+					<th>State</th>
+					<th>Zip Code</th>
+					<th>Country</th>
+					<th>Title</th>
+					<th>Created</th>
+					<th>Language</th>
+					<th>Wants Email</th>
+					<th>Free</th>
+				</tr>
+			</thead>
+	
+			<tbody>	
+				<% @licenses.each do |lic|%>
+				<tr>
+					<td><%= lic[0] %></td>
+					<td class="column"><%= lic[14] %></td>
+					<td><%= lic[1] %></td>
+					<td><%= lic[2] %></td>
+					<td><%= lic[3] %></td>
+					<td><%= lic[4] %></td>
+					<td><%= lic[5] %></td>
+					<td><%= lic[6] %></td>
+					<td><%= lic[7] %></td>
+					<td><%= lic[8] %></td>
+					<td><%= lic[9] %></td>
+					<td><%= lic[10] %></td>
+					<td><%= lic[15] %></td>
+					<td><%= lic[10] %></td>
+					<td><%= lic[11] %></td>
+					<td><%= lic[13] %></td>
+				</tr>
+				<% end %>
+			<tbody>
+	</table>
+<div>

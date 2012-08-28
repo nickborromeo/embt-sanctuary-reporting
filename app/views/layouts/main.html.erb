@@ -1,0 +1,62 @@
+<head>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<header id='hd'>
+	<div id='logo_container'>
+		<div id='embt_logo'>
+			<%= image_tag("embarcadero_logo.png") %>
+		</div>
+		
+		<div id='hd_maintabs'>
+			<%= link_to "Date Range", {}, :id => 'set_date_range' %>
+			<%= link_to "Company", {},:id => 'set_company_filter' %>
+		</div>	 
+	</div>
+</header>
+		
+<div id='date_range' class='filter_container'>
+	<%= form_tag({:controller => 'licenses', :action => 'get_licenses'}, :remote => true) do %>
+		
+		<div>
+			<%= label_tag :start_date, "Start Date" %>
+			<%= text_field_tag :start_date %>
+		</div>
+		<div>
+			<%= label_tag :end_date, "End Date" %>
+			<%= text_field_tag :end_date, Time.now.strftime('%m/%d/%Y') %>
+		</div>
+		
+		<div>
+			<%= submit_tag("Search", {:id => 'start_search'})%>
+		</div>
+	<%end%>
+</div>
+
+<div id='company_filter' class='filter_container'>
+	<%= form_tag({:controller => 'licenses', :action => 'get_licenses_company'}, :remote => true) do %>
+		
+		<div>
+			<%= label_tag :start_date_c, "Start Date" %>
+			<%= text_field_tag :start_date_c %>
+		</div>
+		<div>
+			<%= label_tag :end_date_c, "End Date" %>
+			<%= text_field_tag :end_date_c, Time.now.strftime('%m/%d/%Y') %>
+		</div>
+		
+		<div>
+			<%= label_tag :account_name, "Company: " %>
+			<%= text_field_tag :account_name %>
+		</div>
+		<div>
+			<%= submit_tag("Search", {:id => 'start_search_c'})%>
+		</div>
+	<%end%>
+</div>
+
+<section id='data_content' class='data_section'>
+	<%= yield %>
+</section>
