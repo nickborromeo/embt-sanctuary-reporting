@@ -3,6 +3,17 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
+	
+	$('table#license_table').dataTable
+		sPaginationType: 'full_numbers'
+		sScrollX: "100%"
+		bRetrieve: true
+		bDestroy: true
+		aoColumnDefs:[
+			sWidth: '350px'
+			aTargets: [1]
+		]
+	
 	$('div#date_range').show()
 	$('div#company_filter').hide()
 	$('#retrieve_error').hide()
@@ -44,14 +55,6 @@ jQuery ->
 		buttonImage: '/assets/calendar.png'
 		buttonImageOnly: true
 		
-	$('table#license_table').dataTable
-		sPaginationType: 'full_numbers'
-		sScrollX: "100%"
-		aoColumnDefs:[
-			sWidth: '350px'
-			aTargets: [1]
-		]
-		
 	fetchingLicenses = null
 	
 	$('input#start_search').click (e) ->
@@ -82,4 +85,6 @@ jQuery ->
 			success: (data, textStatus, jqXHR) ->
 				$('#license_data').empty().append "#{data}"
 				$('#license_data').show()
+				
+				
 				
