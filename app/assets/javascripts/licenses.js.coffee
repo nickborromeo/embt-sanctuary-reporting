@@ -15,7 +15,6 @@ jQuery ->
 		]
 	
 	$('div#date_range').show()
-	$('div#company_filter').hide()
 	$('#retrieve_error').hide()
 	$('#loading').hide()
 	
@@ -23,12 +22,6 @@ jQuery ->
 		e.preventDefault()
 		$('div#date_range').show()
 		$('div#company_filter').hide()
-		false
-	
-	$('a#set_company_filter').click (e) ->
-		e.preventDefault()
-		$('div#date_range').hide()
-		$('div#company_filter').show()
 		false
 		
 	$('input#start_date').datepicker
@@ -57,34 +50,35 @@ jQuery ->
 		
 	fetchingLicenses = null
 	
-	$('input#start_search').click (e) ->
+	$('button#start_search').click (e) ->
 		e.preventDefault
 		sDate = $('input#start_date').val()
 		eDate = $('input#end_date').val()
+		aName = $('input#account_name').val()
+		pFamily = $("input[name='prod_family']").val()
 		
 		$('#license_data').hide()
-		
-		if(fetchingLicenses)
-			fetchingLicenses.abort()
-		
-		fetchingLicenses = $.ajax 'licenses/get_licenses',
+
+		$.ajax 'licenses/get_licenses',
 			type: 'POST'
 			data: 
 				start_date: sDate,
-				end_date: eDate
+				end_date: eDate,
+				account_name: aName,
+				prod_family: pFamily
 			cache: false
 			beforeSend: ->
 				$('#loading').show()
-				$('#retrieve_error').hide()			
+				$('#retrieve_error').hide()
+			loading: ->
+				$('#loading').show()			
 			complete: (result) ->
 				$('#loading').hide()
-				fetchingLicenses = null
 			error: (jqXHR, textStatus, errorThrown) ->
 				if(textStatus !=  'abort')
-					$('body').append "AJAX Error #{textStatus}" 
-			success: (data, textStatus, jqXHR) ->
-				$('#license_data').empty().append "#{data}"
+					$('#retrieve_error').show()			
+			success: (data) ->
+				$('#license_data').html(data)
 				$('#license_data').show()
-				
 				
 				

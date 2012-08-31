@@ -12,7 +12,6 @@
 		
 		<div id='hd_maintabs'>
 			<%= link_to "Date Range", {}, :id => 'set_date_range' %>
-			<%= link_to "Company", {},:id => 'set_company_filter' %>
 		</div>	 
 	</div>
 </header>
@@ -30,37 +29,32 @@
 		</div>
 		
 		<div>
-			<%= submit_tag("Search", {:id => 'start_search'})%>
+			<%= label_tag :account_name, "Company: " %>
+			<%= text_field_tag :account_name %>
+		</div>
+		
+		<div>
+			<%= radio_button_tag :prod_family, "2", :checked => true %>
+			<%= label_tag "Database" %>
+
+			<%= radio_button_tag :prod_family, "1", %>
+			<%= label_tag "Developer" %>
+
+			<%= radio_button_tag :prod_family, "3", %>
+			<%= label_tag "Both" %>
+		</div>
+		
+		<div>
+			<%= button_tag("Search", {:id => 'start_search', :disable_with => "Please wait..."})%>
 		</div>
 	<%end%>
 </div>
 
-<div id='company_filter' class='filter_container'>
-	<%= form_tag({:controller => 'licenses', :action => 'get_licenses_company'}, :remote => true) do %>
-		
-		<div>
-			<%= label_tag :start_date_c, "Start Date" %>
-			<%= text_field_tag :start_date_c %>
-		</div>
-		<div>
-			<%= label_tag :end_date_c, "End Date" %>
-			<%= text_field_tag :end_date_c, Time.now.strftime('%m/%d/%Y') %>
-		</div>
-		
-		<div>
-			<%= label_tag :account_name, "Company: " %>
-			<%= text_field_tag :account_name %>
-		</div>
-		<div>
-			<%= submit_tag("Search", {:id => 'start_search_c'})%>
-		</div>
-	<%end%>
-</div>
 
 <section id='data_content' class='data_section'>
 	
 	<div id='license_data'>
-		<%= yield %>
+		<%= yield :licenses %>
 	</div>
 	
 	<div id='loading'>
