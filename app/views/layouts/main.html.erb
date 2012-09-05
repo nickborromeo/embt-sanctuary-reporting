@@ -1,7 +1,8 @@
 <head>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<title>Sanctuary Report</title>
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
 </head>
 
 <header id='hd'>
@@ -17,7 +18,7 @@
 </header>
 		
 <div id='date_range' class='filter_container'>
-	<%= form_tag({:controller => 'licenses', :action => 'get_licenses'}, :remote => true) do %>
+	<%= form_tag({:action => 'create'}, :remote => true) do %>
 		
 		<div>
 			<%= label_tag :start_date, "Start Date" %>
@@ -45,7 +46,7 @@
 		</div>
 		
 		<div>
-			<%= button_tag("Search", {:id => 'start_search', :disable_with => "Please wait..."})%>
+			<%= button_tag("Search",:type => 'button', :id => 'start_search', :disable_with => "Please wait...")%>
 		</div>
 	<%end%>
 </div>
@@ -66,7 +67,5 @@
 		<h2> There was a problem retrieving the licenses </h2>
 	</div>
 	
-	
-	
-	
 </section>
+

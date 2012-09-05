@@ -4,16 +4,6 @@
 
 jQuery ->
 	
-	$('table#license_table').dataTable
-		sPaginationType: 'full_numbers'
-		sScrollX: "100%"
-		bRetrieve: true
-		bDestroy: true
-		aoColumnDefs:[
-			sWidth: '350px'
-			aTargets: [1]
-		]
-	
 	$('div#date_range').show()
 	$('#retrieve_error').hide()
 	$('#loading').hide()
@@ -50,23 +40,42 @@ jQuery ->
 		
 	fetchingLicenses = null
 	
+	$('#data_content.data_section #license_data #license-pagination #paginator a').live 'click', ->
+		
+		$.ajax 'licenses/get_licenses',
+			type: 'POST'
+			dataType: 'html'
+			data: 
+				start_date: $('input#start_date').val(),
+				end_date: $('input#end_date').val(),
+				account_name: $('input#account_name').val(),
+				prod_family: $("input[name='prod_family']:checked").val()
+				page: $(@).attr('href').match(/page=([0-9]+)/)[1];
+			cache: false
+			ifModified: true
+			error: (jqXHR, textStatus, errorThrown) ->
+				if(textStatus !=  'abort')
+					$('#retrieve_error').show()			
+			success: (data) ->
+				$('#license_data').html(data)
+				$('#license_data').show()
+		
 	$('button#start_search').click (e) ->
-		e.preventDefault
-		sDate = $('input#start_date').val()
-		eDate = $('input#end_date').val()
-		aName = $('input#account_name').val()
-		pFamily = $("input[name='prod_family']").val()
+		e.preventDefault()
+		#console.log('clicked on submit')
 		
 		$('#license_data').hide()
 
 		$.ajax 'licenses/get_licenses',
 			type: 'POST'
+			dataType: 'html'
 			data: 
-				start_date: sDate,
-				end_date: eDate,
-				account_name: aName,
-				prod_family: pFamily
+				start_date: $('input#start_date').val(),
+				end_date: $('input#end_date').val(),
+				account_name: $('input#account_name').val(),
+				prod_family: $("input[name='prod_family']:checked").val()
 			cache: false
+			ifModified: true
 			beforeSend: ->
 				$('#loading').show()
 				$('#retrieve_error').hide()
@@ -80,5 +89,3 @@ jQuery ->
 			success: (data) ->
 				$('#license_data').html(data)
 				$('#license_data').show()
-				
-				
