@@ -1,0 +1,77 @@
+<head>
+	<title>Sanctuary Report</title>
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+</head>
+
+<header id='hd'>
+	<div id='logo_container'>
+		<div id='embt_logo'>
+			<%= image_tag("embarcadero_logo.png") %>
+		</div>
+		
+		<div id='hd_maintabs'>
+			<%= link_to "Date Range", {}, :id => 'set_date_range' %>
+		</div>	 
+	</div>
+</header>
+		
+<div id='date_range' class='filter_container'>
+	<%= form_tag({:action => 'create'}, :remote => true) do %>
+		
+		<div>
+			<%= label_tag :start_date, "Start Date" %>
+			<%= text_field_tag :start_date %>
+		</div>
+		<div>
+			<%= label_tag :end_date, "End Date" %>
+			<%= text_field_tag :end_date, Time.now.strftime('%m/%d/%Y') %>
+		</div>
+		
+		<div>
+			<%= label_tag :account_name, "Company: " %>
+			<%= text_field_tag :account_name %>
+		</div>
+		
+		<div>
+			<%= radio_button_tag :prod_family, "2", :checked => true %>
+			<%= label_tag "Database" %>
+
+			<%= radio_button_tag :prod_family, "1", %>
+			<%= label_tag "Developer" %>
+
+			<%= radio_button_tag :prod_family, "3", %>
+			<%= label_tag "Both" %>
+		</div>
+		
+		<div>
+			<%= button_tag("Search",:type => 'button', :id => 'start_search', :disable_with => "Please wait...")%>
+		</div>
+		
+		<div>
+			<%= link_to 'Export', licenses_export_excel_path({:start_date => @sDate, :format => :xls}), :id => 'export_xls' %>
+		</div>
+	
+	<%end%>
+	
+</div>
+
+
+<section id='data_content' class='data_section'>
+	
+	<div id='license_data'>
+		<%= yield :licenses %>
+	</div>
+	
+	<div id='loading'>
+		<h2>Retrieving Licenses</h2>
+		<%= image_tag 'spinner.gif'%>
+	</div>
+	
+	<div id='retrieve_error'>
+		<h2> There was a problem retrieving the licenses </h2>
+	</div>
+	
+</section>
+

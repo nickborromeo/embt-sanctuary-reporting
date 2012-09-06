@@ -24,7 +24,12 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'jquery-datatables-rails'
+
+# pagination
+gem 'kaminari'
+
+# export to excel
+gem 'to_xls'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

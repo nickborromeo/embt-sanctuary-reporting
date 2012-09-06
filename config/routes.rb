@@ -1,11 +1,14 @@
 SanctuaryReport::Application.routes.draw do
   
+  
+  get 'licenses/get_licenses'
+  get 'licenses/export_excel'
+  
+  post 'licenses/get_licenses'
+  post 'licenses/export_excel'
+  
   resources :licenses
   
-  get 'licenses/show'
-
-  post 'licenses/show'
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
