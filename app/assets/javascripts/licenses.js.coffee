@@ -39,10 +39,10 @@ jQuery ->
 		buttonImageOnly: true
 		
 	fetchingLicenses = null
-	
+		
 	$('#data_content.data_section #license_data #license-pagination #paginator a').live 'click', ->
 		
-		$.ajax 'licenses/get_licenses',
+		$.ajax @href,
 			type: 'POST'
 			dataType: 'html'
 			data: 
@@ -59,10 +59,9 @@ jQuery ->
 			success: (data) ->
 				$('#license_data').html(data)
 				$('#license_data').show()
-		
+			
 	$('button#start_search').click (e) ->
 		e.preventDefault()
-		#console.log('clicked on submit')
 		
 		$('#license_data').hide()
 

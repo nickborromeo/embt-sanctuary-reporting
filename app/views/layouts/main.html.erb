@@ -48,7 +48,13 @@
 		<div>
 			<%= button_tag("Search",:type => 'button', :id => 'start_search', :disable_with => "Please wait...")%>
 		</div>
+		
+		<div>
+			<%= link_to 'Export', licenses_export_excel_path({:start_date => @sDate, :format => :xls}), :id => 'export_xls' %>
+		</div>
+	
 	<%end%>
+	
 </div>
 
 
