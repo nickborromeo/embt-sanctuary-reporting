@@ -4,10 +4,17 @@
 
 
 #license-pagination{
-	overflow:hidden;
+	overflow:auto;
 	margin: 0px auto;
+	height: 680px;
+	/*border: 1px solid;*/
+	position: relative;
 }
 
+#paginator{
+	position: absolute;
+	/*border: 1px solid;*/
+}
 
 #license_table {
 	border: 0;
@@ -15,5 +22,28 @@
 	font-size: 14px;
 }
 
+#page_load {
+	background: url('/assets/page-spinner.gif') black no-repeat center center;
+	opacity: 0.4;
+	z-index: 10;
+	width: 80%;
+	height: 700px;
+}
+
+#page_load, #license_data {
+	position: absolute;
+}
+
+#license_data{
+	/*border: 1px solid;*/
+	height: 700px;
+}
+
+.loading_pages{
+	width: 80%;
+	height: 700px;
+	margin: 0 auto;
+	text-align: center;
+}
 
 

@@ -7,6 +7,7 @@ jQuery ->
 	$('div#date_range').show()
 	$('#retrieve_error').hide()
 	$('#loading').hide()
+	$('#page_load').hide()
 	
 	$('a#set_date_range').click (e) ->
 		e.preventDefault()
@@ -41,7 +42,7 @@ jQuery ->
 		
 	fetchingLicenses = null
 		
-	$('#data_content.data_section #license_data #license-pagination #paginator a').live 'click', ->
+	$('#data_content.data_section #license_data.data_section div #paginator .pagination a').live 'click', ->
 		
 		move_page
 		if $(@).attr('href').indexOf('page') is -1
@@ -59,11 +60,13 @@ jQuery ->
 				prod_family: $("input[name='prod_family']:checked").val()
 				page: move_page
 			cache: false
-			ifModified: true
+			beforeSend: ->
+				$('#page_load').show()
 			error: (jqXHR, textStatus, errorThrown) ->
 				if(textStatus !=  'abort')
 					$('#retrieve_error').show()			
 			success: (data) ->
+				$('#page_load').hide()
 				$('#license_data').html(data)
 				$('#license_data').show()
 			

@@ -1,41 +1,44 @@
 
-<div id="license-pagination">
+<div>
+	<div id="license-pagination">
      <table id="license_table" class="display">
-               <thead>
-                    <tr>
-                         <th>Name</th>
-                         <th>Serial Number</th>
-                         <th>E-Mail</th>
-                         <th>Account Name</th>
-                         <th>License</th>
-                         <th>Product Category</th>
-                         <th>Version</th>
-                         <th>PID</th>
-                         <th>Country</th>
-                         <th>Created</th>    
-                    </tr>
-               </thead>
-    
-               <tbody id="licenses">    
-                    <% @licenses.each do |lic|%>
-						<tr>
-                        	 <td><%= lic[0] %></td>
-	                         <td class="column"><%= lic[1] %></td>
-	                         <td><%= lic[2] %></td>
-	                         <td><%= lic[3] %></td>
-	                         <td><%= lic[4] %></td>
-	                         <td><%= lic[5] %></td>
-	                         <td><%= lic[6] %></td>
-	                         <td><%= lic[7] %></td>
-	                         <td><%= lic[8] %></td>
-	                         <td><%= lic[9] %></td>
-                    	</tr>
-                    <% end %>
-               <tbody>
+     	<thead>
+        	<tr>
+            	<th>Name</th>
+	            <th>Serial Number</th>
+	            <th>E-Mail</th>
+	            <th>Account Name</th>
+	            <th>License</th>
+	            <th>Product Category</th>
+	            <th>Version</th>
+	            <th>PID</th>
+	            <th>Country</th>
+	            <th>Created</th>    
+            </tr>
+        </thead>
+ 
+      <tbody id="licenses">    
+      	<% @licenses.each do |lic|%>
+			<tr>
+            	<td><%= lic[0] %></td>
+                 <td class="column"><%= lic[1] %></td>
+                 <td><%= lic[2] %></td>
+                 <td><%= lic[3] %></td>
+                 <td><%= lic[4] %></td>
+                 <td><%= lic[5] %></td>
+                 <td><%= lic[6] %></td>
+                 <td><%= lic[7] %></td>
+                 <td><%= lic[8] %></td>
+                 <td><%= lic[9] %></td>
+           	</tr>
+      	<% end %>
+      <tbody>
      </table>
+	</div>
 
 	<div id="paginator">
 		<%= paginate @licenses, :remote => true %>
+		<span>Total pages <%= @licenses.num_pages%> </span>
 	</div>
-<div>
-
+	
+</div>
