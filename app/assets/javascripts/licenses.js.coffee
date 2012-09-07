@@ -38,9 +38,16 @@ jQuery ->
 		buttonImage: '/assets/calendar.png'
 		buttonImageOnly: true
 		
+		
 	fetchingLicenses = null
 		
 	$('#data_content.data_section #license_data #license-pagination #paginator a').live 'click', ->
+		
+		move_page
+		if $(@).attr('href').indexOf('page') is -1
+			move_page = 1
+		else
+			move_page = $(@).attr('href').match(/page=([0-9]+)/)[1]
 		
 		$.ajax @href,
 			type: 'POST'
@@ -50,7 +57,7 @@ jQuery ->
 				end_date: $('input#end_date').val(),
 				account_name: $('input#account_name').val(),
 				prod_family: $("input[name='prod_family']:checked").val()
-				page: $(@).attr('href').match(/page=([0-9]+)/)[1];
+				page: move_page
 			cache: false
 			ifModified: true
 			error: (jqXHR, textStatus, errorThrown) ->
