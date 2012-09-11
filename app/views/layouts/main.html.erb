@@ -12,7 +12,7 @@
 		</div>
 		
 		<div id='hd_maintabs'>
-			<%= link_to "Date Range", {}, :id => 'set_date_range' %>
+			<%= link_to "Report", {}, :id => 'set_date_range' %>
 		</div>	 
 	</div>
 </header>
@@ -20,56 +20,74 @@
 <div id='date_range' class='filter_container'>
 	<%= form_tag({:action => 'create'}, :remote => true) do %>
 		
-		<div>
-			<%= label_tag :start_date, "Start Date" %>
-			<%= text_field_tag :start_date %>
-		</div>
-		<div>
-			<%= label_tag :end_date, "End Date" %>
-			<%= text_field_tag :end_date, Time.now.strftime('%m/%d/%Y') %>
-		</div>
-		
-		<div>
-			<%= label_tag :account_name, "Company: " %>
-			<%= text_field_tag :account_name %>
-		</div>
-		
-		<div>
-			<%= radio_button_tag :prod_family, "2", :checked => true %>
-			<%= label_tag "Database" %>
+		<div id='search_container'>
+			<div id='date_filter'>
+				<div class='filter_criteria'>
+					<%= label_tag :start_date, "Start Date:", :class => 'label_style' %>
+					<%= text_field_tag :start_date %>
+				</div>
 
-			<%= radio_button_tag :prod_family, "1", %>
-			<%= label_tag "Developer" %>
+				<div class='filter_criteria'>
+					<%= label_tag :end_date, "End Date:", :class => 'label_style' %>
+					<%= text_field_tag :end_date, Time.now.strftime('%m/%d/%Y') %>
+				</div>
 
-			<%= radio_button_tag :prod_family, "3", %>
-			<%= label_tag "Both" %>
+			</div>
+
+			<div id='advance_filter'>
+				<div class='filter_criteria'>
+					<%= label_tag :account_name, "Company: ", :class => 'label_style' %>
+					<%= text_field_tag :account_name, nil, {:size => 38} %>
+				</div>
+
+				<div class='filter_criteria'>
+					<%= label_tag :l_prod_family, "Product Family: ", :class => 'label_style' %>
+					<%= radio_button_tag :prod_family, "2", :checked => true %>
+					<%= label_tag "Database" %>
+
+					<%= radio_button_tag :prod_family, "1", %>
+					<%= label_tag "Developer" %>
+
+					<%= radio_button_tag :prod_family, "3", %>
+					<%= label_tag "Both" %>
+				</div>
+
+
+			</div>
 		</div>
 		
-		<div>
-			<%= button_tag("Search",:type => 'button', :id => 'start_search', :disable_with => "Please wait...")%>
-		</div>
-		
-		<div>
-			<%= link_to 'Export', licenses_export_excel_path({:start_date => @sDate, :format => :xls}), :id => 'export_xls' %>
+		<div id='button_container'>
+			<div class='button_format'>
+				<%= button_tag("Search",:type => 'button', :id => 'start_search', :disable_with => "Please wait...", :class => 'button_style')%>
+			</div>
+			
+			<div class='button_format'>
+				<%= link_to 'Export', licenses_export_excel_path({:format => :xls}), :id => 'export_xls', :class => 'button_style' %>
+			</div>
+			
 		</div>
 	
 	<%end%>
 	
 </div>
 
+<br>
 
 <section id='data_content' class='data_section'>
 	
-	<div id='license_data'>
+	<div id='license_data' class='data_section'>
 		<%= yield :licenses %>
 	</div>
 	
-	<div id='loading'>
+	<div id='loading' class='loading_pages'>
 		<h2>Retrieving Licenses</h2>
 		<%= image_tag 'spinner.gif'%>
 	</div>
 	
-	<div id='retrieve_error'>
+	<div id='page_load' class='data_section'>
+	</div>
+	
+	<div id='retrieve_error' class='loading_pages'>
 		<h2> There was a problem retrieving the licenses </h2>
 	</div>
 	
