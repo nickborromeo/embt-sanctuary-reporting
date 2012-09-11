@@ -94,6 +94,29 @@ input, select {
 	width: 80%;
 	margin: 0px auto;
 	padding: 5px 0px 5px 0px;
+	height: 80px;
+	border-bottom-style: solid;
+	display: block;
+}
+
+#button_container{
+	float: right;
+	display: inline;
+	margin: 15px 0 0 0;
+}
+
+#export_xls {
+	text-decoration: none;
+}
+
+#search_container{
+	float: left;
+}
+
+
+.filter_criteria {
+	padding: 5px;
+	display: inline;
 }
 
 .data_section{
@@ -101,6 +124,53 @@ input, select {
 	margin: 0px auto;
 }
 
-.search_filter{
+#date_filter, #advance_filter{
+	margin: 5px 0px 20px 10px;
+}
 
+.button_format{
+	display: inline;
+	margin: 15px 20px 0 0 ;
+}
+
+.button_style {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #ffffff;
+	padding: 10px 20px;
+	background: -moz-linear-gradient(
+		top,
+		#ff2819 0%,
+		#ab0000);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#ff2819),
+		to(#ab0000));
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 5px;
+	border: 1px solid #7d0000;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,0.7);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,0.7);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,0.7);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.4),
+		0px 1px 0px rgba(255,255,255,0.3);
+}
+
+.button_style:hover{
+	background: #ff0d00;
+	cursor: hand;
+	cursor: pointer;
+}
+
+.label_style {
+	font-weight: bold;
 }

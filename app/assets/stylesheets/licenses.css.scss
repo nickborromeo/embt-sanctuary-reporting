@@ -13,7 +13,19 @@
 
 #paginator{
 	position: absolute;
-	/*border: 1px solid;*/
+	display: block;
+	width: 100%;
+}
+
+#paginator span.pages{
+	display: block;
+	float: left;
+}
+
+#paginator span.page_number{
+	display: block;
+	float: right;
+	font-weight: bold;
 }
 
 #license_table {
@@ -45,5 +57,30 @@
 	margin: 0 auto;
 	text-align: center;
 }
+
+.page,.first,.prev,.next,.last {
+	background: #f7f7f7;
+	padding: 5px 5px;
+	margin: 2px;
+	border: 1px solid #c6c6c6;
+	font-weight: bold;
+	border-radius: 3px;
+}
+
+.page a,.first a,.prev a,.next a,.last a {
+	text-decoration: none;
+	color: #7e7e7e;
+}
+
+.current,.page:hover,.first:hover,.prev:hover,.next:hover,.last:hover {
+	background: #9ad6fb;
+
+	-webkit-transition: all 0.25s ease 0s;
+	-moz-transition: all 0.25s ease 0s;
+	-o-transition: all 0.25s ease 0s;
+	-ms-transition: all 0.25s ease 0s;
+	transition: all 0.25s ease 0s;
+}
+
 
 

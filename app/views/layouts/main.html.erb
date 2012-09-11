@@ -12,7 +12,7 @@
 		</div>
 		
 		<div id='hd_maintabs'>
-			<%= link_to "Date Range", {}, :id => 'set_date_range' %>
+			<%= link_to "Report", {}, :id => 'set_date_range' %>
 		</div>	 
 	</div>
 </header>
@@ -20,43 +20,58 @@
 <div id='date_range' class='filter_container'>
 	<%= form_tag({:action => 'create'}, :remote => true) do %>
 		
-		<div class='search_filter'>
-			<%= label_tag :start_date, "Start Date" %>
-			<%= text_field_tag :start_date %>
-		</div>
-		<div class='search_filter'>
-			<%= label_tag :end_date, "End Date" %>
-			<%= text_field_tag :end_date, Time.now.strftime('%m/%d/%Y') %>
-		</div>
-		
-		<div>
-			<%= label_tag :account_name, "Company: " %>
-			<%= text_field_tag :account_name %>
-		</div>
-		
-		<div>
-			<%= radio_button_tag :prod_family, "2", :checked => true %>
-			<%= label_tag "Database" %>
+		<div id='search_container'>
+			<div id='date_filter'>
+				<div class='filter_criteria'>
+					<%= label_tag :start_date, "Start Date:", :class => 'label_style' %>
+					<%= text_field_tag :start_date %>
+				</div>
 
-			<%= radio_button_tag :prod_family, "1", %>
-			<%= label_tag "Developer" %>
+				<div class='filter_criteria'>
+					<%= label_tag :end_date, "End Date:", :class => 'label_style' %>
+					<%= text_field_tag :end_date, Time.now.strftime('%m/%d/%Y') %>
+				</div>
 
-			<%= radio_button_tag :prod_family, "3", %>
-			<%= label_tag "Both" %>
+			</div>
+
+			<div id='advance_filter'>
+				<div class='filter_criteria'>
+					<%= label_tag :account_name, "Company: ", :class => 'label_style' %>
+					<%= text_field_tag :account_name, nil, {:size => 38} %>
+				</div>
+
+				<div class='filter_criteria'>
+					<%= label_tag :l_prod_family, "Product Family: ", :class => 'label_style' %>
+					<%= radio_button_tag :prod_family, "2", :checked => true %>
+					<%= label_tag "Database" %>
+
+					<%= radio_button_tag :prod_family, "1", %>
+					<%= label_tag "Developer" %>
+
+					<%= radio_button_tag :prod_family, "3", %>
+					<%= label_tag "Both" %>
+				</div>
+
+
+			</div>
 		</div>
 		
-		<div>
-			<%= button_tag("Search",:type => 'button', :id => 'start_search', :disable_with => "Please wait...")%>
-		</div>
-		
-		<div>
-			<%= link_to 'Export', licenses_export_excel_path({:format => :xls}), :id => 'export_xls' %>
+		<div id='button_container'>
+			<div class='button_format'>
+				<%= button_tag("Search",:type => 'button', :id => 'start_search', :disable_with => "Please wait...", :class => 'button_style')%>
+			</div>
+			
+			<div class='button_format'>
+				<%= link_to 'Export', licenses_export_excel_path({:format => :xls}), :id => 'export_xls', :class => 'button_style' %>
+			</div>
+			
 		</div>
 	
 	<%end%>
 	
 </div>
 
+<br>
 
 <section id='data_content' class='data_section'>
 	

@@ -13,7 +13,7 @@
 	            <th>Version</th>
 	            <th>PID</th>
 	            <th>Country</th>
-	            <th>Created</th>    
+	            <th>Registered</th>    
             </tr>
         </thead>
  
@@ -37,8 +37,8 @@
 	</div>
 
 	<div id="paginator">
-		<%= paginate @licenses, :remote => true %>
-		<span>Total pages <%= @licenses.num_pages%> </span>
+		<span class='pages'><%= paginate @licenses, :remote => true %></span>
+		<span class='page_number'>Page <%= @licenses.current_page%> of <%= @licenses.num_pages%></span>
 	</div>
 	
 </div>
