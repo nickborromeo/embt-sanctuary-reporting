@@ -9,6 +9,8 @@ jQuery ->
 	$('#loading').hide()
 	$('#page_load').hide()
 	
+	$('table#license_table').tablesorter()
+	
 	$('a#set_date_range').click (e) ->
 		e.preventDefault()
 		$('div#date_range').show()

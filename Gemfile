@@ -28,6 +28,9 @@ gem 'jquery-rails'
 # pagination
 gem 'kaminari'
 
+#table sorter
+gem 'jquery-tablesorter'
+
 # export to excel
 gem 'to_xls'
 

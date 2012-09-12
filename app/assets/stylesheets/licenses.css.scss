@@ -11,6 +11,10 @@
 	position: relative;
 }
 
+#license_table {
+	position: absolute;
+}
+
 #paginator{
 	position: absolute;
 	display: block;
@@ -30,7 +34,7 @@
 
 #license_table {
 	border: 0;
-	font-family: helvetica;
+	font-family: sans-serif;
 	font-size: 14px;
 }
 
@@ -38,7 +42,7 @@
 	background: url('/assets/page-spinner.gif') black no-repeat center center;
 	opacity: 0.4;
 	z-index: 10;
-	width: 80%;
+	width: 90%;
 	height: 700px;
 }
 
@@ -52,7 +56,7 @@
 }
 
 .loading_pages{
-	width: 80%;
+	width: 90%;
 	height: 700px;
 	margin: 0 auto;
 	text-align: center;
@@ -82,5 +86,32 @@
 	transition: all 0.25s ease 0s;
 }
 
+.long-column {
+	width: 10%;
+}
 
+#license_table {
+	font-family: Arial,sans-serif,"Helvetica Neue",Helvetica;;
+	font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: -1px;
+    line-height: 1.2em;
+    border-collapse:separate;
+    text-align:center;
+}
 
+#licenses-head th{
+	color: white;
+	background-color: black;
+	border-radius: 3px;
+	font-size: 15px;
+	padding: 2px;
+	height: 58px;
+}
+
+#licenses-body td {
+
+    background-color: rgba(255, 255, 0, 0.4);
+	height: 58px;
+}
