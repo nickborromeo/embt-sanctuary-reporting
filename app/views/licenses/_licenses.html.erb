@@ -1,11 +1,16 @@
 
 <div>
+	<div id="paginator">
+		<span class='pages'><%= paginate @licenses, :remote => true %></span>
+		<span class='page_number'>Total Records:  <%= @licenses.total_count %></span>
+	</div>
+	<br/><br/>
 	<div id="license-pagination">
-     <table id="license_table" class="display">
-     	<thead>
+     <table id="license_table">
+     	<thead id='licenses-head'>
         	<tr>
             	<th>Name</th>
-	            <th>Serial Number</th>
+	            <th width='30'>Serial Number</th>
 	            <th>E-Mail</th>
 	            <th>Account Name</th>
 	            <th>License</th>
@@ -17,11 +22,11 @@
             </tr>
         </thead>
  
-      <tbody id="licenses">    
+      <tbody id="licenses-body">    
       	<% @licenses.each do |lic|%>
 			<tr>
-            	<td><%= lic[0] %></td>
-                 <td class="column"><%= lic[1] %></td>
+            	 <td><%= lic[0] %></td>
+                 <td width='30'><%= lic[1] %></td>
                  <td><%= lic[2] %></td>
                  <td><%= lic[3] %></td>
                  <td><%= lic[4] %></td>
@@ -34,11 +39,6 @@
       	<% end %>
       <tbody>
      </table>
-	</div>
-
-	<div id="paginator">
-		<span class='pages'><%= paginate @licenses, :remote => true %></span>
-		<span class='page_number'>Page <%= @licenses.current_page%> of <%= @licenses.num_pages%></span>
 	</div>
 	
 </div>

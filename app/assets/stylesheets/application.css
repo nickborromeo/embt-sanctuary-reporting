@@ -11,12 +11,13 @@
  *= require jquery.ui.datepicker
  *= require jquery.ui.core
  *= require jquery.ui.theme
+ *= require jquery-tablesorter/ui
  *= require_self
  *= require_tree .
  */
 
 #hd{
-	width: 80%;
+	width: 90%;
 	margin: 0px auto;
 	height: 50px;
 	padding-top: 16px;
@@ -91,7 +92,7 @@ input, select {
 
 
 .filter_container{
-	width: 80%;
+	width: 90%;
 	margin: 0px auto;
 	padding: 5px 0px 5px 0px;
 	height: 80px;
@@ -120,7 +121,7 @@ input, select {
 }
 
 .data_section{
-	width: 80%;
+	width: 90%;
 	margin: 0px auto;
 }
 
@@ -174,3 +175,5 @@ input, select {
 .label_style {
 	font-weight: bold;
 }
+
+
