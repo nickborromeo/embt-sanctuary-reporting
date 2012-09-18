@@ -45,10 +45,10 @@
 					<%= radio_button_tag :prod_family, "2", :checked => true %>
 					<%= label_tag "Database" %>
 
-					<%= radio_button_tag :prod_family, "1", %>
+					<%= radio_button_tag :prod_family, "1" %>
 					<%= label_tag "Developer" %>
 
-					<%= radio_button_tag :prod_family, "3", %>
+					<%= radio_button_tag :prod_family, "3" %>
 					<%= label_tag "Both" %>
 				</div>
 
@@ -84,7 +84,8 @@
 		<%= image_tag 'spinner.gif'%>
 	</div>
 	
-	<div id='page_load' class='data_section'>
+	<div id='page_load'>
+		<%= image_tag 'page-spinner.gif', :class => 'center'%>
 	</div>
 	
 	<div id='retrieve_error' class='loading_pages'>

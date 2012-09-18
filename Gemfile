@@ -43,8 +43,8 @@ gem 'to_xls'
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Deploy with Capistrano
-# gem 'capistrano'
+# Deploy with Capistrano and Tomcat
+ gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'
