@@ -39,14 +39,21 @@
 }
 
 #page_load {
-	background: url('/assets/page-spinner.gif') black no-repeat center center;
+	position: absolute;
+	padding-top: 25%;
+	background: #000000;
 	opacity: 0.4;
 	z-index: 10;
 	width: 90%;
-	height: 700px;
+	height: 400px;
 }
 
-#page_load, #license_data {
+img.center {
+	display: block;
+	margin: auto auto;
+}
+
+#license_data {
 	position: absolute;
 }
 
@@ -58,7 +65,7 @@
 .loading_pages{
 	width: 90%;
 	height: 700px;
-	margin: 0 auto;
+	margin: auto auto;
 	text-align: center;
 }
 

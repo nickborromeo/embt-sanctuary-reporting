@@ -1,5 +1,6 @@
 SanctuaryReport::Application.routes.draw do
   
+  root :to => 'licenses#index'
   
   get 'licenses/get_licenses'
   get 'licenses/export_excel'
